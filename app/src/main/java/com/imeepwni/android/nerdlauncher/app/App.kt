@@ -1,4 +1,4 @@
-package com.imeepwni.android.ankowiki.app
+package com.imeepwni.android.nerdlauncher.app
 
 import android.app.*
 
