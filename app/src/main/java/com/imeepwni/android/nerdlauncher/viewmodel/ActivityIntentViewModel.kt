@@ -26,6 +26,9 @@ class ActivityIntentViewModel(activityIntent: ActivityIntent) : BaseObservable()
     fun getActivityClassName() = activityIntent.activityClassName
 
     @Bindable
+    fun getIcon() = activityIntent.icon
+
+    @Bindable
     fun getIntent() = Intent(Intent.ACTION_MAIN)
             .apply {
                 setClassName(getPackageName(), getActivityClassName())

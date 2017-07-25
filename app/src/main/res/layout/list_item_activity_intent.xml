@@ -4,21 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="activity"
             type="android.app.Activity"/>
+
         <variable
             name="viewModel"
             type="com.imeepwni.android.nerdlauncher.viewmodel.ActivityIntentViewModel"/>
     </data>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:padding="16dp"
-        android:textStyle="bold"
-        android:text="@{viewModel.getActivityName()}"
-        android:onClick="@{() -> activity.startActivity(viewModel.getIntent())}"
-        tools:text="@string/app_name"/>
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{viewModel.getIcon()}"
+            tools:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:onClick="@{() -> activity.startActivity(viewModel.getIntent())}"
+            android:text="@{viewModel.getActivityName()}"
+            android:textStyle="bold"
+            tools:text="@string/app_name"/>
+    </LinearLayout>
+
 </layout>

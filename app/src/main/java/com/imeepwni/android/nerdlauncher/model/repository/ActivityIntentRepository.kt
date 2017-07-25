@@ -15,11 +15,12 @@ object ActivityIntentRepository {
         val intent = Intent(Intent.ACTION_MAIN)
         intent.addCategory(Intent.CATEGORY_LAUNCHER)
 
-        val packageManager = activity.packageManager
-        val activities = packageManager.queryIntentActivities(intent, 0)
+        val pm = activity.packageManager
+        val activities = pm.queryIntentActivities(intent, 0)
                 .map {
                     with(it) {
-                        ActivityIntent(loadLabel(packageManager).toString(),
+                        ActivityIntent(loadLabel(pm).toString(),
+                                activityInfo.loadIcon(pm),
                                 activityInfo.packageName,
                                 activityInfo.name)
                     }
