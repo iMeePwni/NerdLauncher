@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="android.app.Activity"/>
+        <variable
+            name="viewModel"
+            type="com.imeepwni.android.nerdlauncher.viewmodel.ActivityIntentViewModel"/>
+    </data>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:textStyle="bold"
+        android:text="@{viewModel.getActivityName()}"
+        android:onClick="@{() -> activity.startActivity(viewModel.getIntent())}"
+        tools:text="@string/app_name"/>
+</layout>
